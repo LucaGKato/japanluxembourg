@@ -1,174 +1,172 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <!-- Basic page settings -->
+    <!-- Defines the character encoding so text displays correctly -->
     <meta charset="UTF-8">
+
+    <!-- Makes the page responsive on mobile and desktop -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Title shown in the browser tab -->
     <title>Hanami in the Park - Japan Luxembourg Association</title>
 
     <style>
-        /* Main page background and text */
+        /* Main page styling */
         body {
-            margin: 0;
-            padding: 0;
-            font-family: "Yu Gothic", "Hiragino Kaku Gothic ProN", "Segoe UI", Arial, sans-serif;
-            background: linear-gradient(180deg, #f8f4ef 0%, #f3eee8 100%);
-            color: #3d3a36;
+            margin: 0; /* Removes browser default margin */
+            padding: 0; /* Removes browser default padding */
+            font-family: "Yu Gothic", "Hiragino Kaku Gothic ProN", "Segoe UI", Arial, sans-serif; /* Soft readable font stack */
+            background: linear-gradient(180deg, #f8f4ef 0%, #f3eee8 100%); /* Soft paper-like background */
+            color: #3d3a36; /* Main text color */
         }
 
-        /* Header section */
+        /* Header area at the top */
         header {
-            background: linear-gradient(135deg, rgba(132, 48, 78, 0.95), rgba(191, 132, 92, 0.95));
-            color: white;
-            text-align: center;
-            padding: 50px 20px;
+            background: linear-gradient(135deg, rgba(132, 48, 78, 0.95), rgba(191, 132, 92, 0.95)); /* Elegant Japanese-style tones */
+            color: white; /* White text on header */
+            text-align: center; /* Center text */
+            padding: 50px 20px; /* Inner spacing */
         }
 
-        /* Main title */
+        /* Main heading */
         header h1 {
-            margin: 0;
-            font-size: 2.4rem;
+            margin: 0; /* Remove default margin */
+            font-size: 2.4rem; /* Large title size */
         }
 
-        /* Content wrapper */
+        /* Main page container */
         .container {
-            max-width: 900px;
-            margin: 40px auto;
-            padding: 0 20px 40px 20px;
+            max-width: 900px; /* Prevent content from becoming too wide */
+            margin: 40px auto; /* Center content with vertical spacing */
+            padding: 0 20px 40px 20px; /* Side and bottom padding */
         }
 
-        /* Main card */
+        /* White content card */
         .content-box {
-            background: rgba(255, 255, 255, 0.92);
-            border-radius: 18px;
-            padding: 30px;
-            box-shadow: 0 10px 24px rgba(0, 0, 0, 0.08);
+            background: rgba(255, 255, 255, 0.92); /* Slightly transparent white */
+            border-radius: 18px; /* Rounded corners */
+            padding: 30px; /* Inner spacing */
+            box-shadow: 0 10px 24px rgba(0, 0, 0, 0.08); /* Soft shadow */
         }
 
-        /* Meta information */
+        /* Small event info badge */
         .meta {
-            display: inline-block;
-            margin-bottom: 20px;
-            font-size: 0.95rem;
-            color: #6b6258;
-            background: #f7f1ea;
-            padding: 6px 12px;
-            border-radius: 999px;
+            display: inline-block; /* Allows rounded badge appearance */
+            margin-bottom: 20px; /* Space below badge */
+            font-size: 0.95rem; /* Slightly smaller text */
+            color: #6b6258; /* Soft muted text */
+            background: #f7f1ea; /* Soft warm background */
+            padding: 6px 12px; /* Inner spacing */
+            border-radius: 999px; /* Pill shape */
         }
 
-        /* Paragraph styling */
+        /* Paragraph text */
         p {
-            line-height: 1.8;
-            font-size: 1.05rem;
+            line-height: 1.8; /* Better readability */
+            font-size: 1.05rem; /* Comfortable reading size */
         }
 
-        /* Link button */
-        .back-link {
-            display: inline-block;
-            margin-top: 25px;
-            text-decoration: none;
-            color: white;
-            background: #84304e;
-            padding: 10px 18px;
-            border-radius: 999px;
-        }
-
-        .back-link:hover {
-            background: #a34767;
-        }
-
-        /* Section title */
+        /* Section headings */
         h2 {
-            color: #84304e;
+            color: #84304e; /* Elegant plum color */
+            margin-top: 30px; /* Space above heading */
         }
 
-        /* Event widget section */
+        /* Eventbrite section */
         .widget-section {
-            margin-top: 35px;
-            padding-top: 20px;
-            border-top: 1px solid #e4d8ca;
+            margin-top: 35px; /* Space above widget section */
+            padding-top: 20px; /* Space inside top */
+            border-top: 1px solid #e4d8ca; /* Soft divider line */
         }
 
-        /* Custom ticket button style */
-        .ticket-button {
-            background: #0c95cf;
-            color: white;
-            border: none;
-            padding: 14px 24px;
-            font-size: 1rem;
-            border-radius: 999px;
-            cursor: pointer;
-            box-shadow: 0 6px 18px rgba(12, 149, 207, 0.25);
-            transition: transform 0.2s ease, opacity 0.2s ease;
+        /* Style for the embedded widget area */
+        #eventbrite-widget-container-1988120431730 {
+            margin-top: 15px; /* Space above widget */
+            min-height: 425px; /* Reserve space for widget */
         }
 
-        .ticket-button:hover {
-            transform: translateY(-2px);
-            opacity: 0.95;
+        /* Back button link */
+        .back-link {
+            display: inline-block; /* Makes it behave like a button */
+            margin-top: 25px; /* Space above button */
+            text-decoration: none; /* Remove underline */
+            color: white; /* White text */
+            background: #84304e; /* Button background color */
+            padding: 10px 18px; /* Inner button spacing */
+            border-radius: 999px; /* Rounded button */
+            transition: background 0.2s ease; /* Smooth hover */
+        }
+
+        /* Back button hover effect */
+        .back-link:hover {
+            background: #a34767; /* Slightly lighter on hover */
         }
     </style>
 </head>
 <body>
+
+    <!-- Top page header -->
     <header>
         <h1>Hanami in the Park</h1>
     </header>
 
+    <!-- Main content wrapper -->
     <div class="container">
         <div class="content-box">
+
+            <!-- Small event label -->
             <div class="meta">April 2026 • Community Event</div>
 
+            <!-- Intro text -->
             <p>
                 Our Hanami gathering brings members, families, and friends together to enjoy the beauty of spring.
                 Inspired by the Japanese tradition of flower viewing, this event is a moment to relax outdoors,
                 share food, and celebrate friendship in a peaceful atmosphere.
             </p>
 
+            <!-- Additional event description -->
             <p>
                 Guests can enjoy a picnic-style afternoon, seasonal Japanese treats, and activities for children.
                 It is also a wonderful opportunity for newcomers to meet members of the Japan Luxembourg Association
                 and discover our community spirit.
             </p>
 
+            <!-- Ticket section -->
             <div class="widget-section">
                 <h2>Reserve Your Place</h2>
 
-                <!-- Fallback link for users with JavaScript disabled -->
-                <noscript>
-                    <a href="https://www.eventbrite.com/e/tea-ceremony-tickets-1988120431730" rel="noopener noreferrer" target="_blank">
-                        Buy Tickets on Eventbrite
-                    </a>
-                </noscript>
-
-                <!-- Eventbrite modal trigger button -->
-                <button id="eventbrite-widget-modal-trigger-1988120431730" type="button" class="ticket-button">
-                    Buy Tickets
-                </button>
+                <!-- Eventbrite will insert the embedded checkout inside this div -->
+                <div id="eventbrite-widget-container-1988120431730"></div>
             </div>
 
+            <!-- Link back to homepage -->
             <a class="back-link" href="index.html">← Back to Home</a>
+
         </div>
     </div>
 
-    <!-- Load Eventbrite widget script near end of body -->
+    <!-- Load Eventbrite widget library -->
     <script src="https://www.eventbrite.com/static/widgets/eb_widgets.js"></script>
 
-    <script type="text/javascript">
-        var exampleCallback = function() {
-            console.log('Order complete!');
-        };
+    <!-- Create the embedded Eventbrite checkout after the page has loaded -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            window.EBWidgets.createWidget({
+                /* Required */
+                widgetType: 'checkout',
+                eventId: '1988120431730',
+                iframeContainerId: 'eventbrite-widget-container-1988120431730',
 
-        window.EBWidgets.createWidget({
-            widgetType: 'checkout',
-            eventId: '1988120431730',
-            themeSettings: {
-                brandColor: '#0c95cf',
-                fontColor: '#000000',
-                background: '#FFFFFF'
-            },
-            modal: true,
-            modalTriggerElementId: 'eventbrite-widget-modal-trigger-1988120431730',
-            onOrderComplete: exampleCallback
+                /* Optional */
+                iframeContainerHeight: 425,
+
+                /* Callback when order is completed */
+                onOrderComplete: function () {
+                    console.log('Order complete!');
+                }
+            });
         });
     </script>
+
 </body>
 </html>
