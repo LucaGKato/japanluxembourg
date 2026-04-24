@@ -1,212 +1,241 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <!-- Defines the character encoding so Japanese text displays correctly -->
     <meta charset="UTF-8">
-
-    <!-- Makes the page responsive on phones, tablets, and desktops -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <!-- Title shown in the browser tab -->
     <title>Japan Luxembourg Association - Blog</title>
 
     <style>
-        /* Reset some default spacing and define the main look of the page */
         body {
-            margin: 0; /* Removes default browser margin */
-            padding: 0; /* Removes default browser padding */
-            font-family: "Yu Gothic", "Hiragino Kaku Gothic ProN", "Segoe UI", Arial, sans-serif; /* Smooth readable font stack */
-            background: linear-gradient(180deg, #f8f4ef 0%, #f3eee8 100%); /* Soft warm Japanese-paper-like background */
-            color: #3d3a36; /* Main text color */
-            min-height: 100vh; /* Ensures the page fills the screen height */
+            margin: 0;
+            padding: 0;
+            font-family: "Yu Gothic", "Hiragino Kaku Gothic ProN", "Segoe UI", Arial, sans-serif;
+            background: linear-gradient(180deg, #f8f4ef 0%, #f3eee8 100%);
+            color: #3d3a36;
+            min-height: 100vh;
         }
 
-        /* Top banner area */
         header {
-            background: linear-gradient(135deg, rgba(132, 48, 78, 0.95), rgba(191, 132, 92, 0.95)); /* Elegant deep rose + warm gold gradient */
-            color: white; /* White text on banner */
-            text-align: center; /* Center all content */
-            padding: 60px 20px; /* Space inside the header */
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.12); /* Soft shadow */
+            background:
+                linear-gradient(135deg, rgba(82, 28, 50, 0.76), rgba(132, 62, 44, 0.68)),
+                url("https://commons.wikimedia.org/wiki/Special:FilePath/Cherry_Blossom_Picnic.JPG") center 42% / cover;
+            color: white;
+            text-align: center;
+            padding: 86px 20px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.12);
         }
 
-        /* Main title in header */
         header h1 {
-            margin: 0; /* Remove default margin */
-            font-size: 2.8rem; /* Large title size */
-            letter-spacing: 1px; /* Slight spacing between letters */
+            margin: 0;
+            font-size: 2.8rem;
+            letter-spacing: 1px;
+            text-shadow: 0 2px 14px rgba(0, 0, 0, 0.28);
         }
 
-        /* Subtitle under main title */
         header p {
-            margin-top: 15px; /* Space above subtitle */
-            font-size: 1.1rem; /* Comfortable reading size */
-            opacity: 0.95; /* Slight softness */
+            margin-top: 15px;
+            font-size: 1.1rem;
+            opacity: 0.95;
+            text-shadow: 0 2px 12px rgba(0, 0, 0, 0.28);
         }
 
-        /* Main content wrapper */
         .container {
-            max-width: 1000px; /* Keeps content nicely centered and not too wide */
-            margin: 40px auto; /* Vertical spacing + horizontal centering */
-            padding: 0 20px 40px 20px; /* Side spacing and bottom spacing */
+            max-width: 1000px;
+            margin: 40px auto;
+            padding: 0 20px 40px;
         }
 
-        /* Intro box */
         .intro {
-            background: rgba(255, 255, 255, 0.88); /* Semi-soft white background */
-            border-radius: 18px; /* Rounded corners */
-            padding: 30px; /* Space inside the box */
-            box-shadow: 0 8px 24px rgba(80, 60, 40, 0.08); /* Subtle shadow */
-            margin-bottom: 35px; /* Space below the intro */
-            line-height: 1.8; /* Better readability */
+            background: rgba(255, 255, 255, 0.88);
+            border-radius: 18px;
+            padding: 30px;
+            box-shadow: 0 8px 24px rgba(80, 60, 40, 0.08);
+            margin-bottom: 35px;
+            line-height: 1.8;
         }
 
-        /* Section titles */
+        .intro-layout {
+            display: grid;
+            grid-template-columns: minmax(0, 1.2fr) minmax(260px, 0.8fr);
+            gap: 28px;
+            align-items: center;
+        }
+
+        .intro-photos {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+        }
+
+        .intro-photos img {
+            width: 100%;
+            height: 120px;
+            object-fit: cover;
+            border-radius: 14px;
+            box-shadow: 0 8px 18px rgba(80, 60, 40, 0.12);
+        }
+
+        .intro-photos img:first-child {
+            grid-column: 1 / -1;
+            height: 150px;
+        }
+
         h2 {
-            color: #84304e; /* Deep Japanese-inspired plum color */
-            margin-top: 0; /* Remove unnecessary top margin */
-            font-size: 1.8rem; /* Section heading size */
-            border-left: 6px solid #c08b5c; /* Decorative vertical accent line */
-            padding-left: 14px; /* Space between line and text */
+            color: #84304e;
+            margin-top: 0;
+            font-size: 1.8rem;
+            border-left: 6px solid #c08b5c;
+            padding-left: 14px;
         }
 
-        /* Grid for blog cards */
         .entries {
-            display: grid; /* Use grid layout */
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); /* Responsive columns */
-            gap: 24px; /* Space between cards */
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 24px;
         }
 
-        /* Each event card */
         .card {
-            background: rgba(255, 255, 255, 0.92); /* Soft white card */
-            border-radius: 18px; /* Rounded corners */
-            overflow: hidden; /* Prevent content from spilling out */
-            box-shadow: 0 10px 22px rgba(0, 0, 0, 0.08); /* Light shadow */
-            transition: transform 0.25s ease, box-shadow 0.25s ease; /* Smooth hover animation */
-            border: 1px solid rgba(192, 139, 92, 0.16); /* Delicate border */
+            background: rgba(255, 255, 255, 0.92);
+            border-radius: 18px;
+            overflow: hidden;
+            box-shadow: 0 10px 22px rgba(0, 0, 0, 0.08);
+            transition: transform 0.25s ease, box-shadow 0.25s ease;
+            border: 1px solid rgba(192, 139, 92, 0.16);
         }
 
-        /* Hover effect for event card */
         .card:hover {
-            transform: translateY(-6px); /* Moves card slightly upward */
-            box-shadow: 0 14px 28px rgba(0, 0, 0, 0.12); /* Stronger shadow on hover */
+            transform: translateY(-6px);
+            box-shadow: 0 14px 28px rgba(0, 0, 0, 0.12);
         }
 
-        /* Top decorative strip for each card */
-        .card-top {
-            height: 8px; /* Thin decorative band */
-            background: linear-gradient(90deg, #84304e, #c08b5c); /* Elegant color transition */
+        .card-image {
+            width: 100%;
+            height: 170px;
+            object-fit: cover;
+            display: block;
         }
 
-        /* Inner area of card */
         .card-content {
-            padding: 22px; /* Space inside card */
+            padding: 22px;
         }
 
-        /* Event title link */
         .card-content a {
-            text-decoration: none; /* Removes underline */
-            color: #84304e; /* Main link color */
-            font-size: 1.2rem; /* Title size */
-            font-weight: bold; /* Emphasize title */
+            text-decoration: none;
+            color: #84304e;
+            font-size: 1.2rem;
+            font-weight: bold;
         }
 
-        /* Hover effect for event title link */
         .card-content a:hover {
-            color: #c08b5c; /* Warmer accent on hover */
+            color: #c08b5c;
         }
 
-        /* Event date style */
         .date {
-            display: inline-block; /* Allows spacing and box-like appearance */
-            margin-top: 12px; /* Space above date */
-            margin-bottom: 12px; /* Space below date */
-            font-size: 0.92rem; /* Slightly smaller text */
-            color: #6b6258; /* Soft muted text color */
-            background: #f7f1ea; /* Very light warm background */
-            padding: 6px 10px; /* Space inside date badge */
-            border-radius: 999px; /* Fully rounded badge */
+            display: inline-block;
+            margin-top: 12px;
+            margin-bottom: 12px;
+            font-size: 0.92rem;
+            color: #6b6258;
+            background: #f7f1ea;
+            padding: 6px 10px;
+            border-radius: 999px;
         }
 
-        /* Event description text */
         .card-content p {
-            margin: 0; /* Removes default paragraph margin */
-            line-height: 1.7; /* Better readability */
-            color: #4e4a45; /* Slightly softer text color */
+            margin: 0;
+            line-height: 1.7;
+            color: #4e4a45;
         }
 
-        /* Footer area */
         footer {
-            text-align: center; /* Center footer text */
-            padding: 25px 20px 35px 20px; /* Space inside footer */
-            color: #6b6258; /* Soft muted text */
-            font-size: 0.95rem; /* Slightly smaller footer text */
+            text-align: center;
+            padding: 25px 20px 35px;
+            color: #6b6258;
+            font-size: 0.95rem;
         }
 
-        /* Small decorative Japanese-style label */
         .jp-mark {
-            font-size: 0.95rem; /* Smaller decorative label */
-            letter-spacing: 3px; /* Gives it a refined look */
-            text-transform: uppercase; /* Makes Latin letters uppercase */
-            opacity: 0.9; /* Softens text */
-            margin-bottom: 12px; /* Space below label */
-            display: block; /* Makes it take its own line */
+            font-size: 0.95rem;
+            letter-spacing: 3px;
+            opacity: 0.9;
+            margin-bottom: 12px;
+            display: block;
+            text-shadow: 0 2px 12px rgba(0, 0, 0, 0.26);
+        }
+
+        .photo-credit {
+            display: block;
+            margin-top: 8px;
+            font-size: 0.82rem;
+            line-height: 1.6;
+            color: #877a70;
+        }
+
+        .photo-credit a {
+            color: #84304e;
+            text-decoration: none;
+        }
+
+        .photo-credit a:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 720px) {
+            header {
+                padding: 70px 18px;
+            }
+
+            header h1 {
+                font-size: 2.15rem;
+            }
+
+            .intro-layout {
+                grid-template-columns: 1fr;
+            }
+
+            .intro-photos img,
+            .intro-photos img:first-child {
+                height: 130px;
+            }
         }
     </style>
 </head>
 <body>
-
-    <!-- Header section with main site identity -->
     <header>
-        <!-- Decorative small label -->
         <span class="jp-mark">文化・交流・コミュニティ</span>
-
-        <!-- Main title of the blog -->
         <h1>Japan Luxembourg Association</h1>
-
-        <!-- Short welcoming message -->
         <p>Sharing events, cultural moments, and community stories between Japan and Luxembourg.</p>
     </header>
 
-    <!-- Main page content -->
     <div class="container">
-
-        <!-- Introductory section -->
         <section class="intro">
-            <!-- Intro title -->
-            <h2>Welcome</h2>
+            <div class="intro-layout">
+                <div>
+                    <h2>Welcome</h2>
+                    <p>
+                        Welcome to the blog of the Japan Luxembourg Association. Here we share memories from our events,
+                        seasonal celebrations, cultural workshops, and gatherings that bring together Japanese and Luxembourgish
+                        communities. Please explore our latest posts and discover the spirit of exchange, friendship, and tradition.
+                    </p>
+                </div>
 
-            <!-- Intro paragraph -->
-            <p>
-                Welcome to the blog of the Japan Luxembourg Association. Here we share memories from our events,
-                seasonal celebrations, cultural workshops, and gatherings that bring together Japanese and Luxembourgish
-                communities. Please explore our latest posts and discover the spirit of exchange, friendship, and tradition.
-            </p>
+                <div class="intro-photos" aria-label="Scenes from Japanese cultural activities">
+                    <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Sushi_making.jpg" alt="Sushi being prepared during a Japanese cooking activity">
+                    <img src="https://commons.wikimedia.org/wiki/Special:FilePath/TakahataTanabata6222.jpg" alt="Tanabata festival decorations hanging outside a temple">
+                    <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Ceremonial_matcha.jpg" alt="A bowl of ceremonial matcha tea">
+                </div>
+            </div>
         </section>
 
-        <!-- Blog entries section -->
         <section>
-            <!-- Section title -->
             <h2>Recent Events</h2>
 
-            <!-- Responsive grid containing the event cards -->
             <div class="entries">
-
-                <!-- Card 1 -->
                 <article class="card">
-                    <!-- Decorative top strip -->
-                    <div class="card-top"></div>
-
-                    <!-- Main content of card -->
+                    <img class="card-image" src="https://commons.wikimedia.org/wiki/Special:FilePath/Cherry_Blossom_Picnic.JPG" alt="People enjoying a picnic under cherry blossoms">
                     <div class="card-content">
-                        <!-- Link to the event page -->
                         <a href="hanami-in-the-park.html">Hanami in the Park</a>
-
-                        <!-- Event date -->
                         <div class="date">April 2026</div>
-
-                        <!-- Short description -->
                         <p>
                             A spring gathering under blooming trees with families, traditional snacks,
                             music, and warm conversations celebrating the beauty of the season.
@@ -214,9 +243,8 @@
                     </div>
                 </article>
 
-                <!-- Card 2 -->
                 <article class="card">
-                    <div class="card-top"></div>
+                    <img class="card-image" src="https://commons.wikimedia.org/wiki/Special:FilePath/Sushi_making.jpg" alt="Sushi being prepared during a Japanese cooking activity">
                     <div class="card-content">
                         <a href="japanese-cooking-workshop.html">Japanese Cooking Workshop</a>
                         <div class="date">May 2026</div>
@@ -227,9 +255,8 @@
                     </div>
                 </article>
 
-                <!-- Card 3 -->
                 <article class="card">
-                    <div class="card-top"></div>
+                    <img class="card-image" src="https://commons.wikimedia.org/wiki/Special:FilePath/TakahataTanabata6222.jpg" alt="Tanabata festival decorations outside a temple">
                     <div class="card-content">
                         <a href="tanabata-cultural-evening.html">Tanabata Cultural Evening</a>
                         <div class="date">July 2026</div>
@@ -240,9 +267,8 @@
                     </div>
                 </article>
 
-                <!-- Card 4 -->
                 <article class="card">
-                    <div class="card-top"></div>
+                    <img class="card-image" src="https://commons.wikimedia.org/wiki/Special:FilePath/Ceremonial_matcha.jpg" alt="A bowl of ceremonial matcha tea">
                     <div class="card-content">
                         <a href="autumn-tea-ceremony.html">Autumn Tea Ceremony Experience</a>
                         <div class="date">October 2026</div>
@@ -253,9 +279,8 @@
                     </div>
                 </article>
 
-                <!-- Card 5 -->
                 <article class="card">
-                    <div class="card-top"></div>
+                    <img class="card-image" src="https://commons.wikimedia.org/wiki/Special:FilePath/Pounding_mochi.JPG" alt="A mochi-pounding ceremony">
                     <div class="card-content">
                         <a href="new-year-mochitsuki-festival.html">New Year Mochitsuki Festival</a>
                         <div class="date">January 2027</div>
@@ -265,15 +290,21 @@
                         </p>
                     </div>
                 </article>
-
             </div>
         </section>
     </div>
 
-    <!-- Footer section -->
     <footer>
         © 2026 Japan Luxembourg Association • Bringing cultures together with friendship and respect
+        <span class="photo-credit">
+            Photo credits:
+            <a href="https://commons.wikimedia.org/wiki/File:Cherry_Blossom_Picnic.JPG" target="_blank" rel="noopener">Cherry Blossom Picnic</a>,
+            <a href="https://commons.wikimedia.org/wiki/File:Sushi_making.jpg" target="_blank" rel="noopener">Sushi making</a>,
+            <a href="https://commons.wikimedia.org/wiki/File:TakahataTanabata6222.jpg" target="_blank" rel="noopener">Takahata Tanabata</a>,
+            <a href="https://commons.wikimedia.org/wiki/File:Ceremonial_matcha.jpg" target="_blank" rel="noopener">Ceremonial matcha</a>,
+            and <a href="https://commons.wikimedia.org/wiki/File:Pounding_mochi.JPG" target="_blank" rel="noopener">Pounding mochi</a>
+            via Wikimedia Commons.
+        </span>
     </footer>
-
 </body>
 </html>
